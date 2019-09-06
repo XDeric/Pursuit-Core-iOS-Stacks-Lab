@@ -4,14 +4,27 @@ import Foundation
 //Find the largest integer in a Stack of Ints
 
 func largest(stack: Stack<Int>) -> Int {
-    return 0
+    var stacks = stack
+    var currentVal = 0
+    while !stacks.isEmpty(){
+        let stacking = stacks.pop() ?? 0
+        if currentVal < stacking {
+            currentVal = stacking
+        }
+    }
+    return currentVal
 }
 
 //Problem Two:
 //Find the sum of a Stack of Ints
 
 func sum(stack: Stack<Int>) -> Int {
-    return 0
+    var stacks = stack
+    var currentVal = 0
+    while !stacks.isEmpty() {
+        currentVal += stacks.pop() ?? 0
+    }
+    return currentVal
 }
 
 //Problem Three:
