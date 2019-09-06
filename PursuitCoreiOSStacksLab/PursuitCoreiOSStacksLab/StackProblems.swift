@@ -47,7 +47,12 @@ func sum(stack: Stack<Int>) -> Int {
  */
 
 func reverse<T>(stack: Stack<T>) -> Stack<T> {
-    return Stack<T>()
+    var stacks = stack
+    var currentVal = Stack<T>()
+    while !stacks.isEmpty(){
+        currentVal.push(element: stacks.pop()!)
+    }
+    return currentVal
 }
 
 
@@ -55,14 +60,31 @@ func reverse<T>(stack: Stack<T>) -> Stack<T> {
 //Determine if two stacks are equal
 
 func equalStacks<T: Equatable>(stackOne: Stack<T>, stackTwo: Stack<T>) -> Bool {
-    return false
+    var stack1 = stackOne
+    var stack2 = stackTwo
+//    while !(stack1.isEmpty() && stack2.isEmpty()){
+//        if stack1.pop()! != stack2.pop()!{
+//            return false
+//        }
+//    }
+    while !stack1.isEmpty() && !stack2.isEmpty(){
+        if stack1.pop()! != stack2.pop()!{
+            return false
+        }
+    }
+    return true
 }
-
 
 //Problem Five:
 //Write a function that pushes a new element to the bottom of a Stack
 
 func pushBottom<T>(stack: Stack<T>, newElement: T) -> Stack<T> {
+    var stack5 = stack
+    var currentVal = Stack<T>()
+    while !stack5.isEmpty(){
+        currentVal.push(element: newElement)
+        currentVal.push(element: stack5.pop()!)
+    }
     return Stack<T>()
 }
 
@@ -80,6 +102,7 @@ func pushBottom<T>(stack: Stack<T>, newElement: T) -> Stack<T> {
 
 
 func isBalanced(str: String) -> Bool {
+    
     return false
 }
 
